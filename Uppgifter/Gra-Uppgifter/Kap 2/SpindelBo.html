@@ -1,0 +1,80 @@
+<script src="http://spelprogrammering.nu/simple.js">
+
+/*Skriv en spindelkonstruktor som definierar en 
+spindel och innehåller en update funktion. Spindlarna 
+ska ha en x och y position och en xSpeed och ySpeed.
+
+Ditt program ska innehålla en start funktion som 
+fyller en array med 100 spindlar och en update 
+funktion som updaterar alla spindlar positioner.
+
+Spindlarna ska skapas i skärmens mitten och krypa 
+utåt åt slumpmässiga håll.
+
+Programmets update function ska innehålla en if sats 
+som skapar nya spindlar ibland(inte vid varje update) 
+Hur ofta en spindel skapas bör vara kopplat till 
+updatefunktionens uppdateringsfrekvensen.
+
+När en spindel lämnar skärmen bör den inte uppdateras 
+längre.
+
+Din kod ska vara kommenterad så den är lätt att förstå.*/
+
+
+//Spindeln, dens position / hastighet / utseende
+function Spindel(startX, startY, xSpeed, ySpeed){
+    this.x = startX;
+    this.y = startY;
+
+    if (random(2)==0) {
+            this.xSpeed = xSpeed;
+    } else {
+        this.xSpeed = -xSpeed;
+    }
+
+    if (random(2)==0) {
+            this.ySpeed = ySpeed;
+    } else {
+            this.ySpeed = -ySpeed;
+    }
+
+    this.update = function(){
+        this.x += this.xSpeed;
+        this.y += this.ySpeed;
+
+        save();
+        translate(this.x, this.y);   
+        picture(0,0,"Bilder/spiderman.png"); //Spindeln
+        restore();
+
+        }
+    }
+
+function start(){
+    spiders = []; //array ("påse") med alla spiders
+
+    for (let i=0; i<10; i++){
+        spiders[i] = (new Spindel((totalWidth/2), (totalHeight/2),(1+2*random(10))/9,(1+2*random(10))/9));
+    }
+}
+
+//varje gång sidan uppdateras 
+function update(){ 
+    clearScreen();
+   
+    for (let i=0; i<spiders.length; i++){
+        //Raderar spindeln när den gåt uranför området
+        if ((spiders[i].x<0)||(spiders[i].y<0)||(spiders[i].x>totalWidth)||(spiders[i].y>totalHeight)) {           
+            spiders.splice(i, 1);
+        }
+              spiders[i].update();
+    }
+
+    //Spawnar Spindeln
+    if (random(10)==7) {
+    spiders.push(new Spindel((totalWidth/2), (totalHeight/2),(1+2*random(10))/10,(1+2*random(10))/10));
+    }
+}
+
+</script>

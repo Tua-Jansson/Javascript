@@ -1,0 +1,53 @@
+<script src="http://spelprogrammering.nu/simple.js">
+
+/*Rita ett svärd som ändrar färg för att varna för 
+orker. Slumpa färgen på svärdet vilket ska ge 
+vägledning om det finns orker i närheten.*/
+
+function start(){
+    scale(1,1); 
+
+    //Blade
+        rectangle(500, 100, 90, 300);
+        save();
+        triangle(500,100,590,100,545,10 ); 
+        save();
+
+    //Handle
+        rectangle(480, 400, 130, 70 );
+        save();
+        circle (475,435,35); 
+        save();
+        circle (610,435,35); 
+        save();
+        rectangle(505, 415, 80, 200 );
+        save();
+        circle (545, 620, 45 ); 
+        save();
+}
+
+function randInt(size) { 
+    //en funktion som ger en random storlek
+    return parseInt(Math.random() * size);
+}
+
+function randRGB(){ 
+    //en funktion för att ge random färg
+    var n = parseInt(randInt(256)).toString(16);
+    if (n.length == 1) {
+        n ='0'+ n;
+    }
+return n;
+}
+
+function randColor() { 
+    //sätter ihop färgerna
+    return '#' + randRGB() + randRGB() + randRGB();
+}
+
+circle(randInt(1000), randInt(1000), randInt(30)+20, randColor());
+    
+
+
+
+</script>

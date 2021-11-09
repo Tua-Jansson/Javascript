@@ -1,0 +1,28 @@
+<script src="http://spelprogrammering.nu/simple.js">
+
+/*Hockeymålet - Rita en cirkel som man kan styra med 
+piltangenterna. Om cirkeln kommer innanför ett 
+markerat område (målet) så ska det komma upp 
+ett meddelande på skärmen och animeringen avslutas.*/
+
+function start(){//start startar sidan
+        ball={x:0, y:0, speed:10};
+    }
+
+    function update(){
+        //clearScreen(); eller fill("red");
+        clearScreen();
+        if(keyboard.left){ball.x-=ball.speed;}
+        if(keyboard.right){ball.x+=ball.speed;}
+        if(keyboard.down){ball.y+=ball.speed;}
+        if(keyboard.up){ball.y-=ball.speed;}
+        circle(ball.x, ball.y,50,"orchid");
+
+        rectangle(200,100,100,100,"DimGray")
+
+        if(distance(ball,rectangle)<40){
+            stopUpdate();
+            text(300, 650, 70, "Bulle", "crimson");
+        }
+    } 
+</script>

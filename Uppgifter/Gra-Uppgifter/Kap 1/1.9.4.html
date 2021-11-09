@@ -1,0 +1,28 @@
+<script src="http://spelprogrammering.nu/simple.js">
+
+/* Rita ut ett slumpmässigt antal bollar med 
+slumpmässiga storlekar och slumpmässiga positioner.*/
+
+function randInt(size) { 
+    //en funktion som ger en random storlek
+    return parseInt(Math.random() * size);
+}
+
+function randRGB(){ 
+    //en funktion för att ge random färg
+    var n = parseInt(randInt(256)).toString(16);
+    if (n.length == 1) {
+        n ='0'+ n;
+    }
+return n;
+}
+function randColor() { 
+    //sätter ihop färgerna
+    return '#' + randRGB() + randRGB() + randRGB();
+}
+
+for(var i = 0; i<200; i++) { //skriver hur många bollar det ska finnas
+    //Skriver ut allt (färger, storlekar, mängd av bollar) i cirklarna 
+    circle(randInt(1000), randInt(1000), randInt(30)+20, randColor());
+}
+</script>

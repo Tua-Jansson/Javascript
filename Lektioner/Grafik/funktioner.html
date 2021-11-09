@@ -1,0 +1,46 @@
+<script src="http://spelprogrammering.nu/simple.js">
+
+    function drawZombie(x, y){
+           save();
+           translate(x,y);    
+           
+           if (x<totalWidth/2){
+                scale(-1,1);
+                rectangle(3,110,23,65, "MediumOrchid ");
+                rectangle(3,95,23,65, "RebeccaPurple");
+                circle(15,80,20,"MediumOrchid ");
+                circle(0,80,3,"RebeccaPurple");
+                rectangle(-35,100,30,14,"MediumOrchid ");
+                rectangle(-20,100,30,14,"RebeccaPurple");
+        
+            }else{
+                scale(1,1);
+                rectangle(3,110,23,65, "pink");
+                rectangle(3,95,23,65, "darkViolet");
+                circle(15,80,20,"pink");
+                circle(0,80,3,"violet");
+                rectangle(-35,100,30,14,"pink");
+                rectangle(-20,100,30,14,"darkViolet");
+            }
+
+           
+           restore();
+       }
+
+       function start(){
+        /*
+        function NAME(ARGUMENT){
+            //koden som skall köras
+            return VÄRDE_SOM_SKA_RETURNAS
+        } 
+        */
+        
+        text(10, 30, 20, "Give Zombie Hug", "darkviolet ");
+
+        for(let x=10; x<=50; x++){ 
+            drawZombie(random(totalWidth),random(totalHeight)); 
+    }
+        
+    }
+    
+</script>

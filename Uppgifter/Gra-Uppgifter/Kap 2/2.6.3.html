@@ -1,0 +1,23 @@
+<script src="http://spelprogrammering.nu/simple.js">
+
+    function start(){
+
+    /*Fråga, med confirm, om användaren vill se en 
+    triangel. Om användaren svarar ja rita en triangel, 
+    annars rita två trianglar.*/
+
+    ball={x:0, y:0};
+
+        if(confirm("Vill du se en triangel? c:")){
+            alert("Här får du en triangel! c:")
+            triangle(500,200,500,100,350,200,"plum");
+
+        }else{
+            alert("..Då får du TVÅ!! c:<")
+            triangle(500,200,500,100,350,200,"plum");
+            triangle(200,200, 450,200, 325,650,"purple");
+        }
+
+    }
+
+</script>

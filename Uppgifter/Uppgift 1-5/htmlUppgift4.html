@@ -1,0 +1,88 @@
+<script>
+    /*.1 Skriv en while loop som ber användare om att ange Åland 
+    om de inte skriver rätt får de upp prompten igen. När de 
+    skriver rätt så skrivs ”Vi befinner oss på Åland” ut i en alert.*/
+
+    /*let svar;
+    do{
+        svar=prompt("Vilken ö är bäst? (Skriv Åland!)");
+        if(svar.toUpperCase()!="ÅLAND"){
+            alert("Försök igen.. Skriv Åland!...")
+        }
+
+    }while(svar.toUpperCase()!="ÅLAND");
+    alert(`Vi befinner oss på${svar}!! :D`) */
+
+
+
+    /*.2 Skriv en while loop som presenterar en menyval.
+    ”Vill du äta 1.Pizza 2.Hamburgare 3.Varma mackor 4.Kanelbulle 0.Mätt
+    Maten presenteras med en prompt där användaren får välja vad den vill äta.
+    En alert presenterar vald mat.
+    Användaren får välja mat tills den anger att den är mätt.
+    Skriver användaren ett ogiltigt val skrivs detta i en alert.*/
+
+    /*let matsvar;
+    do{
+
+        matsvar=prompt("Mata din dator! skriv siffrorna 1-4, skriv 0 nar datorn ar matt!");
+        switch(Number(matsvar)){
+            case(1):
+            alert("Nam nam.. Pizza c:");
+            break;
+            case(2):
+            alert("Nam nam.. Hamburgare c:");
+            break; 
+            case(3):
+            alert("Nam nam.. Varma Mackor c:");
+            break;
+            case(4):
+            alert("Nam nam.. Kanelbulle c:");
+            break;
+            case(0):
+            alert("Usch... Vad matt man blev :c");
+            break;
+            default:
+                alert("Vi har inte det pa menyn :c");   
+        }
+    }while (matsvar!=0);  
+    /*
+
+
+    /*.3 (html/js) Skriv en funktion toPounds() som tar emot ett värde 
+    på kilo som input från användaren och returnerar motsvarande antal 
+    pounds. Skriv ut talet som returneras i formen ”x kg motsvarar 
+    y pounds*/
+    /*
+    function toPounds(kg){
+        return 2.2*kg;
+    }
+
+    let input;
+    input = prompt("Ange ett antal kg att konvertera till Pounds");
+    let lb;
+    lb = Math.round(toPounds(input),3);
+    alert(`${input}kg ar lika med ${lb.toFixed(2)}lb`);
+    */
+
+
+    
+    /*.4 (html/js) Skriv en funktion randInt(min,max) som slumpar fram ett 
+    tal mellan två integers, min och max och returnerar det. 
+    Ta emot två integers från användaren via två promt och slumpa 
+    sedan fram ett tal genom att kalla på funktionen. Skriv ut det 
+    framslumpade svaret i en alert på formen ”x är ett slumpmässigt 
+    tal mellan y och z”.*/
+
+    function randInt(min,max){
+    let slumpTal = Math.floor(Math.random()*(max-min))+min;
+    return slumpTal;
+}
+
+do{ 
+    let tal1=Number(prompt("Ange lägsta talet. "));
+    let tal2=Number(prompt("Ange lägsta talet. "));
+    alert(randInt(tal1,tal2)+" är ett tal mellan " + tal1 + " och "+tal2);
+}while(confirm("Vill du slumpa fram ett nytt tal?"));
+
+</script>

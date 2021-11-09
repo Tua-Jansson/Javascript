@@ -1,0 +1,84 @@
+<script src="http://spelprogrammering.nu/simple.js">
+
+    /*Labyrint-spel
+    
+    Grund: Rita en labyrint där spelaren ska dra 
+    muspekaren genom en labyrint. Muspekaren ska inte 
+    synas när spelaren är innanför labyrinten. Spelaren 
+    måste navigera labyrinten utan att se muspekaren. 
+    Krockar spelaren med muspekaren mot väggen så avslutas 
+    spelet.
+    
+    Utveckla: Du kan lägga till en funktion för att spelet 
+    automatiskt startar om vid krock, skapa flera banor 
+    eller räkna antal försök*/ 
+        
+    //när musen rör rött
+    function hasCrashed(){
+        return (getPixel(mouse.x, mouse.y).red!=0);}
+        
+    //när musen rör blått
+    function hasWon(){
+        return (getPixel(mouse.x, mouse.y).blue!=0);}
+        
+    
+    function start(){
+
+        save();
+        translate(300,0);  
+
+        //hindren
+        rectangle(300,0,40,300,"red"); //hinder uppe
+        rectangle(450,300,40,totalHeight,"red"); //hinder nere
+       
+        //väggarna
+        line(200, 100, 200, 250, 10, "red"); //kortsida upp
+        line(200, 500, 200, 350, 10, "red"); //kortsida ner
+        line(155, 0, 645, 0, 200, "red"); //långsida upp
+        line(155, totalHeight, 645, totalHeight, 450, "red"); //långsida ner
+        line(600, 505, 600, 350, 10, "red "); //kortsida ner
+        line(600, 95, 600, 250, 10, "red"); //kortsida upp
+
+        //Mål, start, rubrik
+        rectangle(605,95,40,410,"blue "); //mål
+        rectangle(155,95,40,410,"green"); //start
+        
+        text(270, 50, 40, "Labyrint", "white"); //rubrik
+
+        /*rotate(-90)
+        text(-340, 180, 20, "START", "white"); //Start text
+        rotate(180)
+        text(275, -615, 20, "MÅL", "white"); //mål text*/
+
+        restore();
+    }
+    
+    
+    function update(){
+
+        //om musen kommer på en tredjedel av skärmen så försvinner den
+        if(mouse.x<totalWidth/3){
+            showMouse();
+        }else{
+            hideMouse();
+        }
+
+        //om musen har rört rött så sker detta
+        if (hasCrashed()){
+            alert("You Lost");
+            showMouse();
+            stopUpdate();
+        }
+
+        //om musen har rört blått så sker detta
+        if(hasWon()){
+            alert("You Won");
+            showMouse();
+            stopUpdate();
+        }
+
+    }
+
+
+    
+    </script>

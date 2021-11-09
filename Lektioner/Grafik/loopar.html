@@ -1,0 +1,24 @@
+<script src="http://spelprogrammering.nu/simple.js">
+
+    function start(){
+       /* x=40;
+        while (x<totalWidth){ //while loop
+            circle(x,200,40,"DarkViolet");
+            x+=100;
+        }
+    */
+
+    /*for(let x=100; x<=700; x+=100){ //for loop
+        circle(x,400,40,"DarkViolet");
+    }
+    */
+
+    for (let i=100; i<=700; i+=100){ //nesslad loop (när du lägger en loop i en annan loop)
+        for (let j=100; j<=700; j+=100){ 
+            circle(i, j, 40, "DarkViolet"); //i ritar cirklar neråt eftersom den är "x", j ritar cirklar brevid eftersom den är "y"
+        }
+    }
+
+}
+    
+</script>

@@ -1,0 +1,18 @@
+<script src="http://spelprogrammering.nu/simple.js">
+
+    function start(){//start startar sidan
+        if(confirm("Vill du rita?")){
+            alert("Högerklick för röd, vänster klick för svart.")
+        }else{
+            alert("Slipp då :c")
+        }
+
+        updatesPerSecond=120;
+    }
+
+    function update(){
+        if(mouse.left){circle(mouse.x, mouse.y,20,"black");}
+        if(mouse.right){circle(mouse.x, mouse.y,20,"red");}
+    }
+    
+</script>

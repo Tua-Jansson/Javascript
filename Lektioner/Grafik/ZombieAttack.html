@@ -1,0 +1,40 @@
+<script src="http://spelprogrammering.nu/simple.js">
+
+    function Zombie(startX, startY, xSpeed){
+        this.x = startX;
+        this.y = startY;
+        this.xSpeed = xSpeed;
+
+        this.update = function(){
+            this.x += this.xSpeed;
+
+            save();
+            translate(this.x, this.y);    
+            rectangle(3,110,23,65, "MediumOrchid ");
+            rectangle(3,95,23,65, "RebeccaPurple");
+            circle(15,80,20,"MediumOrchid ");
+            circle(0,80,3,"RebeccaPurple");
+            rectangle(-35,100,30,14,"MediumOrchid ");
+            rectangle(-20,100,30,14,"RebeccaPurple");
+            restore();
+
+        }
+    }
+
+    function start(){
+        zombies = []; //"påse" med all zombies
+
+        for (let i=0; i<100; i++){
+            zombies.push (new Zombie(random(totalWidth), random(totalHeight),-1));
+        }
+
+    }
+
+    function update(){
+        clearScreen();
+        for (let i=0; i<zombies.length; i++){
+            zombies[i].update();
+        }
+    }
+    
+</script>

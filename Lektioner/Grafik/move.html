@@ -1,0 +1,18 @@
+<script src="http://spelprogrammering.nu/simple.js">
+
+    function start(){//start startar sidan
+        ball={x:0, y:0};
+        y=10;
+    }
+
+    function update(){
+        //clearScreen(); eller fill("red");
+        clearScreen();
+        if(keyboard.left){ball.x-=y;}
+        if(keyboard.right){ball.x+=y;}
+        if(keyboard.down){ball.y+=y;}
+        if(keyboard.up){ball.y-=y;}
+        circle(ball.x, ball.y,50,"purple ");
+    }
+    
+</script>

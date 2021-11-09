@@ -1,0 +1,25 @@
+<script src="http://spelprogrammering.nu/simple.js">
+
+    function start(){//start startar sidan
+        cat={x:0, y:0, speed:10};
+        hideMouse();//gömmer muspekaren
+    }
+
+    function update(){
+        //clearScreen(); eller fill("red");
+        clearScreen();
+        if(keyboard.left){cat.x-=cat.speed;}
+        if(keyboard.right){cat.x+=cat.speed;}
+        if(keyboard.down){cat.y+=cat.speed;}
+        if(keyboard.up){cat.y-=cat.speed;}
+        circle(cat.x, cat.y,50,"orange");
+
+        circle(mouse.x, mouse.y, 20, "DimGray")
+
+        if(distance(cat,mouse)<40){
+            showMouse();
+            stopUpdate();
+        }
+    }
+    
+</script>
